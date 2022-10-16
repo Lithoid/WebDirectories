@@ -1,0 +1,14 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model DirectoryViewModel
+
+<h1>@Model.currenDir</h1>
+@foreach (var item in Model.currenDir.GetDirectories())
+{
+    <p><a asp-action="Directory" asp-route-currentFolder="@item.FullName">@item.Name</a></p>
+}
+
+<a class="btn btn-success" asp-action="Export" asp-route-currentFolder="@Model.currenDir.FullName">Export this folder</a><br/>
